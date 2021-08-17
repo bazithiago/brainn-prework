@@ -7,13 +7,15 @@ document.querySelector('[data-js="app"]').innerHTML = `
 
   const createLink = document.createElement('a');
   document.body.appendChild(createLink);
-  document.querySelector('a').innerHTML = `
+  document.querySelector('a').setAttribute('data-js','link')
+  document.querySelector('[data-js="link"]').innerHTML = `
     Clique aqui
   `
 
-  const link = document.querySelector('a');
-  link.addEventListener('click', ()=>{
-    const app = document.querySelector('.app');
+  const link = document.querySelector('[data-js="link"]');
+  link.addEventListener('click', (e)=>{
+    e.preventDefault();
+    const app = document.querySelector('[data-js="app"]');
     app.classList.toggle('hidden')
   }, false)
 
