@@ -5,7 +5,16 @@ const john = {
   hobbies: ['Surf', 'Design'],
 }
 
-const jane = john
+function map(john, fn) {
+  return {
+    name: fn(john.name),
+    hobbies: fn(john.hobbies)
+  }
+}
+
+const jane = map(john, (value) => {
+  return value
+})
 
 jane.name = 'Jane'
 jane.hobbies.push('MuayThai', 'Programming')
