@@ -5,10 +5,10 @@ const john = {
   hobbies: ['Surf', 'Design'],
 }
 
-function map(john, fn) {
+function map(value, fn) {
   return {
-    name: fn(john.name),
-    hobbies: fn(john.hobbies)
+    name: fn(value.name),
+    hobbies: fn(value.hobbies)
   }
 }
 
