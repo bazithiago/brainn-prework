@@ -12,12 +12,14 @@ function map(value, fn) {
   }
 }
 
-const jane = map(john, (value) => {
-  return value
-})
+const jane = {
+  ...john,
+  name: 'Jane',
+  hobbies: john.hobbies.concat('MuayThai', 'Programming')
+}
 
-jane.name = 'Jane'
-jane.hobbies.push('MuayThai', 'Programming')
+// jane.name = 'Jane'
+// jane.hobbies.push('MuayThai', 'Programming')
 
 console.log('John:', john)
 console.log('Jane:', jane)
