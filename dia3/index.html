@@ -8,7 +8,23 @@
   </head>
   <body>
     <form>
-      <input type="text" data-js="name">
+      <input type="text" data-js="name"><br/>
+      <div class="custom-select">
+        <select name="colors" multiple class="custom-select">
+          <option data-js="colors-selector" value="red"> Red </option>
+          <option data-js="colors-selector" value="green"> Green </option>
+          <option data-js="colors-selector" value="blue"> Blue </option>
+          <option data-js="colors-selector" value="yellow"> Yellow </option>
+          <option data-js="colors-selector" value="pink"> Pink </option>
+        </select>
+      </div>
+      <div class="boxes">
+        <div class="colors red" data-js="colors-box"></div>
+        <div class="colors green" data-js="colors-box"></div>
+        <div class="colors blue" data-js="colors-box"></div>
+        <div class="colors yellow" data-js="colors-box"></div>
+        <div class="colors pink" data-js="colors-box"></div>
+      </div>
     </form>
 
 
