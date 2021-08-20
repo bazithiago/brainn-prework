@@ -39,16 +39,44 @@ function fixCase(word) {
 
 
 ///////// EXERCICIO 2
-const checkboxes = document.querySelectorAll('[data-js="colors-selector"')
-const colors = document.querySelectorAll('[data-js="colors-box"')
+// const checkboxes = document.querySelectorAll('[data-js="colors-selector"')
+// const colors = document.querySelectorAll('[data-js="colors-box"')
 
-console.log(checkboxes)
-console.log(colors)
+// console.log(checkboxes)
+// console.log(colors)
 
-checkboxes.forEach(checkbox => {
-  checkbox.addEventListener('change', (e) => {
-    return e.target.value
+// checkboxes.forEach(checkbox => {
+//   checkbox.addEventListener('change', (e) => {
+//     return e.target.value
+//   })
+
+// });
+const form = document.querySelector('[data-js="form"]')
+const select = document.createElement('select')
+const colors = ['red', 'green', 'blue', 'yellow', 'orange']
+const colorsContainer = document.createElement('div')
+colorsContainer.style.display = 'flex'
+
+colors.forEach(color => {
+  const option = document.createElement('option')
+  option.value = color
+  option.textContent = color
+  select.appendChild(option)
+})
+
+select.addEventListener('change', (e) => {
+  Array.from(e.target.selectedOptions).forEach(option => {
+    const div = document.createElement('div')
+    div.style.width = '100px'
+    div.style.height = '100px'
+    div.style.background = option.value
+    colorsContainer.appendChild(div)
   })
+})
 
-});
+select.setAttribute('multiple', '')
+form.appendChild(select)
+document.body.appendChild(colorsContainer)
 
+
+////// EXERCICIO 3
