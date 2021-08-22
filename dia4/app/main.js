@@ -1,4 +1,5 @@
 import './style.css'
+const url = 'http://localhost:3333/cars'
 
 const form = document.querySelector('[data-js="cars-form"]')
 const table = document.querySelector('[data-js="table"]')
@@ -39,9 +40,7 @@ function createColor(value){
   return td
 }
 
-
-
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
   e.preventDefault()
   const getElement = getFormElement(e)
 
@@ -52,7 +51,18 @@ form.addEventListener('submit', (e) => {
     plate: getElement('plate').value,
     color: getElement('color').value
   }
-  console.log(data)
+
+  /// POST
+  const result = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'content-type': 'aplication/json',
+    },
+    body: JSON.stringify(data)
+  })
+    .then(res => res.json())
+    .catch(error => ({ error: true, message: error.message}))
+
   createTableRow(data)
 
   e.target.reset()
@@ -88,8 +98,7 @@ function createNoCarRow() {
 }
 
 
-
-const url = 'http://localhost:3333/cars'
+// FETCH
 async function main() {
   const result = await fetch(url)
     .then(result => result.json())
