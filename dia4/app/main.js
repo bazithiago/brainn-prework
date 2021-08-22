@@ -59,7 +59,7 @@ form.addEventListener('submit', (e) => {
   ]
 
   const tr = document.createElement('tr')
-  console.log(elementTypes)
+  // console.log(elementTypes)
   elements.forEach(element => {
     const td = elementTypes[element.type](element.value)
     tr.appendChild(td)
@@ -72,3 +72,17 @@ form.addEventListener('submit', (e) => {
 
 ///////////////
 
+const url = 'http://localhost:3333/cars'
+
+fetch(url, {
+  method: 'GET',
+  headers: {
+    'content-type': 'application/json',
+  },
+})
+  .then(result => result.json())
+  .then(result => result.forEach(car => {
+    console.log(car)
+  }))
+
+//// congelei :(
